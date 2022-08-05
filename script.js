@@ -6,9 +6,11 @@ var generateBtn = document.querySelector("#generate");
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
+  console.log({ password });
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
+  console.log("password updated");
 }
 
 /**
@@ -23,6 +25,8 @@ function generatePassword() {
     // includeNumeric,
     // includeSpecialChars,
   ];
+
+  //iterfunctions and 
 }
 
 function makeRandomChar(index) {
@@ -78,27 +82,28 @@ function includeLower(/** @type string[] */ charArr) {
 
 function includeUppercase(/** @type String[] */ charArray) {
   let result;
-  switch(prompt('Should uppercases be included'))
-  {
-    case 'yes':{
+  switch (prompt("Should uppercases be included")) {
+    case "yes": {
       //get all lowercase indexes,
       // conveert half of them to uppercase
 
-      let lowerCaseIndexes = charArray.map((char,index)=> [char, index]).filter(([char])=> /[a-z]/.test(char) )
+      let lowerCaseIndexes = charArray
+        .map((char, index) => [char, index])
+        .filter(([char]) => /[a-z]/.test(char));
 
-      for(cont [lowerCaseChar,index] of lowerCaseIndexes){
-        
+      for (cont[(lowerCaseChar, index)] of lowerCaseIndexes) {
       }
       break;
-    };
-    case 'no':{
+    }
+    case "no": {
       result = charArray;
       break;
     }
-    default:{
-      result = includeUppercase(charArray);
-    }
-    return result;
+    default:
+      {
+        result = includeUppercase(charArray);
+      }
+      return result;
   }
 }
 
@@ -109,68 +114,62 @@ function includeSpecialChars() {}
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-
 //let upper=["A","B"]
 //let lower= ["a", "b"]
 //let numeric= ["1","9",]
 //let specialChars= ['@',
-'%',
-'+',
-'\\',
-'/',
-"'",
-'!',
-'#',
-'$',
-'^',
-'?',
-':',
-',',
-')',
-'(',
-'}',
-'{',
-']',
-'[',
-'~',
-'-',
-'_',
-'.',]
+// '%',
+// '+',
+// '\\',
+// '/',
+// "'",
+// '!',
+// '#',
+// '$',
+// '^',
+// '?',
+// ':',
+// ',',
+// ')',
+// '(',
+// '}',
+// '{',
+// ']',
+// '[',
+// '~',
+// '-',
+// '_',
+// '.',]
 
-function passwordselections (){
-  let length= parseInt (
-  prompt ("how long is password"),
-  10)
+function passwordselections() {
+  let length = parseInt(prompt("how long is password"), 10);
 
   //let specialChar= confirm ("click ok to confirm")
-
 }
 
 function passwordGen() {
-  let selections= //password selections()
-  let (password=[])
-  if (selections . specialChar) {
-    password . push(getRandom(specialChars) )
+  let selections = //password selections()
+    let((password = []));
+  if (selections.specialChar) {
+    password.push(getRandom(specialChars));
   }
+}
+function passwordGen() {
+  let seclections = //password selections()
+    let((password = []));
+  if (selections.numeric) password.push(getRandom(numeric));
+}
 
-} function passwordGen() {
-  let seclections= //password selections()
-  let (password= [])
-  if (selections . numeric) 
-  password . push(getRandom(numeric) )
-  }
+function passwordGen() {
+  let selections = //password selcections()
+    let((password = []));
+  if (selections.Uppercase) password.push(getRandom(Uppercase));
+}
 
-{ function passwordGen() {
-  let selections= //password selcections()
-  let (password= [])
-  if (selections . Uppercase)
-  password . push(getRandom(Uppercase) )
-    }
-  
-  { function passwordGen() {
-    let selections= //password selections()
-    let (password= [])
-    if (selections . lowercase)
-    password . push(getRandom(lowercase))
+{
+  function passwordGen() {
+    let selections = //password selections()
+      let((password = []));
+    if (selections.lowercase) password.push(getRandom(lowercase));
   }
-    }
+}
