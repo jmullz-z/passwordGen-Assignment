@@ -48,6 +48,21 @@ function writePassword() {
  * gen chars based on each criteria
  */
 function generatePassword() {
+
+  var length = parseInt(prompt("Please enter password lenght"));
+
+  if(length<8 || length>128)
+  {
+    alert("Please enter password length between 8 and 128");
+    generatePassword();
+  }
+
+  var upperConfirm = confirm("Do you want uppercase letters in your password?")
+  var lowerConfirm = confirm("Do you want lowercase letters in your password?")
+  var numbersConfirm = confirm("Do you want numbers in your password?")
+  var specialConfirm = confirm("Do you want special characters in your password?")
+
+
 //   let criteria = [
 //     getLength,
 //     includeLower,
