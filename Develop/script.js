@@ -3,7 +3,7 @@
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
-var upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+var upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 var lowerCase = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 var specialCharacters = [
   '@',
@@ -50,6 +50,8 @@ function writePassword() {
 function generatePassword() {
 
   var length = parseInt(prompt("Please enter password lenght"));
+  var possibleChar = [];
+  var pwd = [];
 
   if(length<8 || length>128)
   {
@@ -57,10 +59,43 @@ function generatePassword() {
     generatePassword();
   }
 
-  var upperConfirm = confirm("Do you want uppercase letters in your password?")
-  var lowerConfirm = confirm("Do you want lowercase letters in your password?")
-  var numbersConfirm = confirm("Do you want numbers in your password?")
-  var specialConfirm = confirm("Do you want special characters in your password?")
+  var upperConfirm = confirm("Do you want uppercase letters in your password?");
+  var lowerConfirm = confirm("Do you want lowercase letters in your password?");
+  var numbersConfirm = confirm("Do you want numbers in your password?");
+  var specialConfirm = confirm("Do you want special characters in your password?");
+
+  if(upperConfirm)
+  {
+    possibleChar = possibleChar.concat(upperCase);
+    console.log(possibleChar);
+  }
+
+  if(lowerConfirm)
+  {
+    possibleChar = possibleChar.concat(lowerCase);
+    console.log(possibleChar);
+  }
+
+  if(numbersConfirm)
+  {
+    possibleChar = possibleChar.concat(numbers);
+    console.log(possibleChar);
+  }
+
+  if(specialConfirm)
+  {
+    possibleChar = possibleChar.concat(specialCharacters);
+    console.log(possibleChar);
+  }
+
+  for(var i=0; i<length; i++)
+  {
+    pwd.push(possibleChar[Math.floor(Math.random()* possibleChar.length)]);
+    console.log(pwd);
+
+  }
+
+  return pwd.join("");
 
 
 //   let criteria = [
